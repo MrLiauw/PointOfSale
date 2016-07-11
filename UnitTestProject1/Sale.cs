@@ -7,14 +7,10 @@ namespace UnitTestProject1
         private Display display;
         private Dictionary<string, string> pricesByBarcode;
 
-        public Sale(Display display)
+        public Sale(Display display, Dictionary<string, string> pricesByBarcode)
         {
             this.display = display;
-            pricesByBarcode = new Dictionary<string, string>()
-                {
-                    {"12345", "$7.95"},
-                    {"23456", "$12.50"}
-                };
+            this.pricesByBarcode = pricesByBarcode;
         }
 
         internal void onBarCode(string barcode)

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{C793009E-B489-4A98-B99B-CC5F7B08B1CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{845C4490-7605-4DD1-9066-22652956F5EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C793009E-B489-4A98-B99B-CC5F7B08B1CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C793009E-B489-4A98-B99B-CC5F7B08B1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C793009E-B489-4A98-B99B-CC5F7B08B1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C793009E-B489-4A98-B99B-CC5F7B08B1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845C4490-7605-4DD1-9066-22652956F5EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845C4490-7605-4DD1-9066-22652956F5EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845C4490-7605-4DD1-9066-22652956F5EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845C4490-7605-4DD1-9066-22652956F5EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

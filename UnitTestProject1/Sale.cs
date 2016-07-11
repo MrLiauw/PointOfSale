@@ -5,12 +5,12 @@ namespace UnitTestProject1
     internal class Sale
     {
         private Display display;
-        private Dictionary<string, string> pricesByBarcode;
+        private Catalog catalog;
 
-        public Sale(Display display, Dictionary<string, string> pricesByBarcode)
+        public Sale(Catalog catalog, Display display)
         {
+            this.catalog = catalog;
             this.display = display;
-            this.pricesByBarcode = pricesByBarcode;
         }
 
         internal void onBarCode(string barcode)
@@ -21,7 +21,7 @@ namespace UnitTestProject1
                 return;
             }
 
-            string priceAsText = FindPrice(barcode);
+            string priceAsText = catalog.FindPrice(barcode);
             if (priceAsText == null)
                 display.DisplayNotFoundMessage(barcode);
             else
@@ -29,11 +29,21 @@ namespace UnitTestProject1
                 display.DisplayPrice(priceAsText);
             }
         }
+    }
 
-        private string FindPrice(string barcode)
+    internal class Catalog
+    {
+        private Dictionary<string, string> _pricesByBarcode;
+
+        public Catalog(Dictionary<string, string> pricesByBarcode)
+        {
+            _pricesByBarcode = pricesByBarcode;
+        }
+
+        public string FindPrice(string barcode)
         {
             string storedPrice = null;
-            pricesByBarcode.TryGetValue(barcode, out storedPrice);
+            _pricesByBarcode.TryGetValue(barcode, out storedPrice);
             return storedPrice;
         }
     }

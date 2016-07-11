@@ -17,13 +17,28 @@ namespace UnitTestProject1
         {
             if (barcode == "")
             {
-                display.Text = "Scanning error : empty barcode";
+                DisplayEmptyBarcodeMessage();
                 return;
             }
             if (pricesByBarcode.ContainsKey(barcode))
-                display.Text = pricesByBarcode[barcode];
+                DisplayPrice(barcode);
             else
-                display.Text = "Product not found for " + barcode;
+                DisplayNotFoundMessage(barcode);
+        }
+
+        private string DisplayNotFoundMessage(string barcode)
+        {
+            return display.Text = "Product not found for " + barcode;
+        }
+
+        private void DisplayPrice(string barcode)
+        {
+            display.Text = pricesByBarcode[barcode];
+        }
+
+        private void DisplayEmptyBarcodeMessage()
+        {
+            display.Text = "Scanning error : empty barcode";
         }
     }
 }

@@ -1,15 +1,20 @@
 ﻿using System.Collections.Generic;
-using System.Net.Mail;
 
 namespace UnitTestProject1
 {
-    class Sale
+    internal class Sale
     {
         private Display display;
+        private Dictionary<string, string> pricesByBarcode;
 
         public Sale(Display display)
         {
             this.display = display;
+            pricesByBarcode = new Dictionary<string, string>()
+                {
+                    {"12345", "$7.95"},
+                    {"23456", "$12.50"}
+                };
         }
 
         internal void onBarCode(string barcode)
@@ -20,13 +25,8 @@ namespace UnitTestProject1
             }
             else
             {
-                Dictionary<string, string> lookupTable = new Dictionary<string, string>()
-                {
-                    {"12345", "$7.95"},
-                    {"23456", "$12.50"}
-                };
-                if (lookupTable.ContainsKey(barcode))
-                    display.Text = lookupTable[barcode];
+                if (pricesByBarcode.ContainsKey(barcode))
+                    display.Text = pricesByBarcode[barcode];
                 else
                     display.Text = "Product not found for " + barcode;
             }

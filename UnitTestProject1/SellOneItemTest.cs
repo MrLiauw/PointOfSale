@@ -36,5 +36,15 @@ namespace test
             sale.onBarCode("99999");
             Assert.AreEqual("Product not found for 99999", display.getText());
         }
+
+        [TestMethod]
+        public void emptyBarCode()
+        {
+            Display display = new Display();
+            Sale sale = new Sale(display);
+
+            sale.onBarCode("");
+            Assert.AreEqual("Scanning error : empty barcode", display.getText());
+        }
     }
 }

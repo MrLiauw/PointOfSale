@@ -11,7 +11,11 @@
 
         internal void onBarCode(string barcode)
         {
-            if (barcode == "12345")
+            if (barcode == "")
+            {
+                display.Text = "Scanning error : empty barcode";
+            }
+            else if (barcode == "12345")
                 display.Text = "$7.95";
             else if(barcode == "23456")
                 display.Text = "$12.50";

@@ -9,9 +9,12 @@
             this.display = display;
         }
 
-        internal void onBarCode(string p)
+        internal void onBarCode(string barcode)
         {
-            display.Text = "$7.95";
+            if (barcode == "12345")
+                display.Text = "$7.95";
+            else
+                display.Text = "$12.50";
         }
     }
 }

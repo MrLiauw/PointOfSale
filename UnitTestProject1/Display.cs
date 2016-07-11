@@ -6,7 +6,6 @@
 
         internal object getText()
         {
-            Text = "$7.95";
             return Text;
         }
     }

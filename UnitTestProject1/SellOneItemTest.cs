@@ -26,5 +26,15 @@ namespace test
             sale.onBarCode("23456");
             Assert.AreEqual("$12.50", display.getText());
         }
+
+        [TestMethod]
+        public void productNotFound()
+        {
+            Display display = new Display();
+            Sale sale = new Sale(display);
+
+            sale.onBarCode("99999");
+            Assert.AreEqual("Product not found for 99999", display.getText());
+        }
     }
 }

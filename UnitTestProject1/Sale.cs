@@ -21,19 +21,30 @@ namespace UnitTestProject1
                 return;
             }
             if (pricesByBarcode.ContainsKey(barcode))
-                DisplayPrice(barcode);
+                FindPriceThenDisplay(barcode);
             else
                 DisplayNotFoundMessage(barcode);
         }
 
-        private string DisplayNotFoundMessage(string barcode)
+        private void DisplayNotFoundMessage(string barcode)
         {
-            return display.Text = "Product not found for " + barcode;
+            display.Text = "Product not found for " + barcode;
         }
 
-        private void DisplayPrice(string barcode)
+        private void FindPriceThenDisplay(string barcode)
         {
-            display.Text = pricesByBarcode[barcode];
+            string priceAsText = FindPrice(barcode);
+            DisplayPrice(priceAsText);
+        }
+
+        private void DisplayPrice(string priceAsText)
+        {
+            display.Text = priceAsText;
+        }
+
+        private string FindPrice(string barcode)
+        {
+            return pricesByBarcode[barcode];
         }
 
         private void DisplayEmptyBarcodeMessage()

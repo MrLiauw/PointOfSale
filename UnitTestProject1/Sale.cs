@@ -26,9 +26,9 @@ namespace UnitTestProject1
                     {"23456", "$12.50"}
                 };
                 if (barcode == "12345")
-                    display.Text = lookupTable["12345"];
+                    display.Text = lookupTable[barcode];
                 else if (barcode == "23456")
-                    display.Text = lookupTable["23456"];
+                    display.Text = lookupTable[barcode];
                 else
                     display.Text = "Product not found for " + barcode;
             }

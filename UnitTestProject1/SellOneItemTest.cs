@@ -54,11 +54,7 @@ namespace test
         public void emptyBarCode()
         {
             Display display = new Display();
-            Sale sale = new Sale(display, new Dictionary<string, string>()
-            {
-                {"12345", "$7.95"},
-                {"23456", "$12.50"}
-            });
+            Sale sale = new Sale(display, new Dictionary<string, string>());
 
             sale.onBarCode("");
             Assert.AreEqual("Scanning error : empty barcode", display.getText());

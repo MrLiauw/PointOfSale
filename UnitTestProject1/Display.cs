@@ -2,9 +2,12 @@
 {
     class Display
     {
+        public string Text { get; set; }
+
         internal object getText()
         {
-            return "$7.95";
+            Text = "$7.95";
+            return Text;
         }
     }
 }

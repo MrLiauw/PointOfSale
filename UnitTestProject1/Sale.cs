@@ -16,7 +16,7 @@
             else if(barcode == "23456")
                 display.Text = "$12.50";
             else
-                display.Text = "Product not found for 99999";
+                display.Text = "Product not found for " + barcode;
         }
     }
 }

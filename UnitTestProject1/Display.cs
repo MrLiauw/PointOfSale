@@ -2,7 +2,7 @@
 {
     class Display
     {
-        public string Text;
+        private string Text;
 
         internal object getText()
         {
@@ -22,6 +22,11 @@
         public void DisplayEmptyBarcodeMessage()
         {
             Text = "Scanning error : empty barcode";
+        }
+
+        public void DisplayNoSaleInProgressMessage()
+        {
+            Text = "No sale in progress. Try scanning a product";
         }
     }
 }

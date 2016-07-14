@@ -32,7 +32,7 @@ namespace UnitTestProject1
 
         internal void onTotal()
         {
-            display.Text = "No sale in progress. Try scanning a product";
+            display.DisplayNoSaleInProgressMessage();
         }
     }
 

@@ -2,7 +2,7 @@
 {
     class Display
     {
-        public string Text { get; set; }
+        private string Text;
 
         internal object getText()
         {

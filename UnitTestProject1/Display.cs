@@ -2,7 +2,7 @@
 {
     class Display
     {
-        private string Text;
+        public string Text;
 
         internal object getText()
         {

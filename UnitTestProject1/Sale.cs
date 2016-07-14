@@ -29,6 +29,11 @@ namespace UnitTestProject1
                 display.DisplayPrice(priceAsText);
             }
         }
+
+        internal void onTotal()
+        {
+            display.Text = "No sale in progress. Try scanning a product";
+        }
     }
 
     internal class Catalog

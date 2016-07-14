@@ -54,6 +54,7 @@
     <Compile Include="Sale.cs" />
     <Compile Include="SellOneItemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SellMultipleItemsTest.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

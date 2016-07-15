@@ -37,7 +37,7 @@ namespace UnitTestProject1
                 display.DisplayNoSaleInProgressMessage();
             else
             {
-                display.Text = "Total: $6.50";
+                display.Text = "Total: " + price;
             }
         }
     }

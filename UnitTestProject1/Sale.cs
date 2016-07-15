@@ -7,7 +7,7 @@ namespace UnitTestProject1
     {
         private Display display;
         private Catalog catalog;
-        private string scannedPrice;
+        private string price;
 
         public Sale(Catalog catalog, Display display)
         {
@@ -23,12 +23,12 @@ namespace UnitTestProject1
                 return;
             }
 
-            scannedPrice = catalog.FindPrice(barcode);
-            if (scannedPrice == null)
+            price = catalog.FindPriceThenFormatPrice(barcode);
+            if (price == null)
                 display.DisplayNotFoundMessage(barcode);
             else
             {
-                display.DisplayPrice(FormatMonetaryAmount(scannedPrice));
+                display.DisplayPrice(FormatMonetaryAmount(price));
             }
         }
 
@@ -39,10 +39,10 @@ namespace UnitTestProject1
 
         internal void onTotal()
         {
-            bool saleInProgress = (scannedPrice != null);
+            bool saleInProgress = (price != null);
             if (saleInProgress)
             {
-                display.DisplayPurchaseTotal(FormatMonetaryAmount(scannedPrice));
+                display.DisplayPurchaseTotal(FormatMonetaryAmount(price));
             }
             else
                 display.DisplayNoSaleInProgressMessage();
@@ -66,7 +66,7 @@ namespace UnitTestProject1
             _pricesInCentsByBarCode = pricesInCentsByBarCode;
         }
 
-        public string FindPrice(string barcode)
+        public string FindPriceThenFormatPrice(string barcode)
         {
             string storedPrice = null;
             _pricesByBarcode.TryGetValue(barcode, out storedPrice);

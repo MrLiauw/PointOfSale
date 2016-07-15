@@ -6,7 +6,7 @@ namespace test
 {
 
     [TestClass]
-    public class SellOneItemTest
+    public class ScanOneItemTest
     {
         private Display display;
         private Sale sale;

@@ -33,12 +33,13 @@ namespace UnitTestProject1
 
         internal void onTotal()
         {
-            if(price == null)
-                display.DisplayNoSaleInProgressMessage();
-            else
+            bool saleInProgress = (price != null);
+            if (saleInProgress)
             {
                 display.DisplayPurchaseTotal(price);
             }
+            else
+                display.DisplayNoSaleInProgressMessage();
         }
     }
 

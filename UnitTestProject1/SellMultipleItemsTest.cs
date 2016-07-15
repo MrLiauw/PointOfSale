@@ -17,7 +17,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void oneItemFound()
+        public void OneItemFound()
         {
             Display display = new Display();
             Catalog catalog = new Catalog(new Dictionary<string, string>(){{"12345","$6.50"}});
@@ -30,7 +30,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void oneItemNotFound()
+        public void OneItemNotFound()
         {
             Display display = new Display();
             Catalog catalog = new Catalog(new Dictionary<string, string>(){{"12345","$6.50"}});

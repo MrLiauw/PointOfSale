@@ -2,7 +2,7 @@
 {
     class Display
     {
-        public string Text;
+        private string Text;
 
         internal object getText()
         {
@@ -27,6 +27,11 @@
         public void DisplayNoSaleInProgressMessage()
         {
             Text = "No sale in progress. Try scanning a product";
+        }
+
+        public void DisplayPurchaseTotal(string price)
+        {
+            Text = "Total: " + price;
         }
     }
 }

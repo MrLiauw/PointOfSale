@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestProject1
 {
@@ -13,6 +14,17 @@ namespace UnitTestProject1
             sale.onTotal();
             Assert.AreEqual("No sale in progress. Try scanning a product", 
                 display.getText());
+        }
+
+        [TestMethod]
+        public void oneItemFound()
+        {
+            Display display = new Display();
+            Catalog catalog = new Catalog(new Dictionary<string, string>(){{"12345","$6.50"}});
+            Sale sale = new Sale(catalog, display);
+            sale.onBarCode("12345");
+            sale.onTotal();
+            Assert.AreEqual("Total: $6.50", display.getText());            
         }
     }
 }

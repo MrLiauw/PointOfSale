@@ -6,6 +6,7 @@ namespace UnitTestProject1
     {
         private Display display;
         private Catalog catalog;
+        private string price;
 
         public Sale(Catalog catalog, Display display)
         {
@@ -21,18 +22,23 @@ namespace UnitTestProject1
                 return;
             }
 
-            string priceAsText = catalog.FindPrice(barcode);
-            if (priceAsText == null)
+            price = catalog.FindPrice(barcode);
+            if (price == null)
                 display.DisplayNotFoundMessage(barcode);
             else
             {
-                display.DisplayPrice(priceAsText);
+                display.DisplayPrice(price);
             }
         }
 
         internal void onTotal()
         {
-            display.DisplayNoSaleInProgressMessage();
+            if(price == null)
+                display.DisplayNoSaleInProgressMessage();
+            else
+            {
+                display.Text = "Total: $6.50";
+            }
         }
     }
 

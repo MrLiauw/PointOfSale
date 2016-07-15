@@ -19,6 +19,11 @@ namespace test
             {
                 {"12345", "$7.95"},
                 {"23456", "$12.50"}
+            }, 
+            new Dictionary<string, int>()
+            {
+                {"12345", 795},
+                {"23456", 1250}
             }), display);
         }
 
@@ -46,7 +51,7 @@ namespace test
         [TestMethod]
         public void emptyBarCode()
         {
-            Sale sale = new Sale(new Catalog(null), display);
+            Sale sale = new Sale(new Catalog(null, null), display);
 
             sale.onBarCode("");
             Assert.AreEqual("Scanning error : empty barcode", display.getText());

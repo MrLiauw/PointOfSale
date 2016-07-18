@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace UnitTestProject1
 {
-    [TestClass]
+    [TestFixture]
     public class FormatMonetaryAmountTest
     {
-        [TestMethod]
+        [Test]
         public void simplest()
         {
             Assert.AreEqual("$7.89", format(789));

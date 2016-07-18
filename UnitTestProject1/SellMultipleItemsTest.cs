@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace UnitTestProject1
 {
-    [TestClass]
+    [TestFixture]
     public class SellMultipleItemsTest
     {
-        [TestMethod]
+        [Test]
         public void ZeroItems()
         {
             Display display = new Display();
@@ -16,7 +16,7 @@ namespace UnitTestProject1
                 display.getText());
         }
 
-        [TestMethod]
+        [Test]
         public void OneItemFound()
         {
             Display display = new Display();
@@ -30,7 +30,7 @@ namespace UnitTestProject1
             Assert.AreEqual("Total: $6.50", display.getText());
         }
 
-        [TestMethod]
+        [Test]
         public void OneItemNotFound()
         {
             Display display = new Display();
@@ -45,7 +45,7 @@ namespace UnitTestProject1
                 display.getText());
         }
 
-        [TestMethod]
+        [Test]
         [Ignore]
         public void severalItemsAllFound()
         {

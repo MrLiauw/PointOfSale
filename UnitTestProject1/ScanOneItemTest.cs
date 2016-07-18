@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using UnitTestProject1;
 
 namespace test
 {
 
-    [TestClass]
+    [TestFixture]
     public class ScanOneItemTest
     {
         private Display display;
         private Sale sale;
 
-        [TestInitialize]
+        [SetUp]
         public void Initialize()
         {
             display = new Display();
@@ -27,28 +27,28 @@ namespace test
             }), display);
         }
 
-        [TestMethod]
+        [Test]
         public void productFound()
         {
             sale.onBarCode("12345");
             Assert.AreEqual("$7.95", display.getText());
         }
 
-        [TestMethod]
+        [Test]
         public void anotherProductFound()
         {
             sale.onBarCode("23456");
             Assert.AreEqual("$12.50", display.getText());
         }
 
-        [TestMethod]
+        [Test]
         public void productNotFound()
         {
             sale.onBarCode("99999");
             Assert.AreEqual("Product not found for 99999", display.getText());
         }
 
-        [TestMethod]
+        [Test]
         public void emptyBarCode()
         {
             Sale sale = new Sale(new Catalog(null, null), display);

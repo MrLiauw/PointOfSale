@@ -11,15 +11,17 @@ namespace UnitTestProject1
         [TestCase("$0.00", 0, TestName = "Monetary amount of 0 formatted to $0.00")]
         [TestCase("$0.02", 2, TestName = "Monetary amount of 2 formatted to $0.02")]
         [TestCase("$0.37", 37, TestName = "Monetary amount of 37 formatted to $0.37")]
+        [TestCase("$4,189.76", 418976, TestName = "Monetary amount of 418976 formatted to $4,189.76")]
+        [TestCase("$2,108,322.81", 210832281, TestName = "Monetary amount of 210832281 formatted to $2,108,322.81")]
         public void Simplest(string expected, int priceWithCents)
         {
-            Assert.AreEqual(expected, format(priceWithCents));
+            Assert.AreEqual(expected, Format(priceWithCents));
         }
 
-        private static string format(int priceInCents)
+        private static string Format(int priceInCents)
         {
             decimal price = (decimal)priceInCents/100;
-            return string.Format("${0}", price.ToString("0.00"));
+            return string.Format("${0}", price.ToString("#,##0.00"));
         }
     }
 }

@@ -5,16 +5,17 @@ namespace UnitTestProject1
     [TestFixture]
     public class FormatMonetaryAmountTest
     {
-        [Test]
         [TestCase("$7.89", 789, TestName = "Monetary amount of 789 formatted to $7.89")]
-        public void simplest(string expected, int priceWithCents)
+        [TestCase("$5.20", 520, TestName = "Monetary amount of 520 formatted to $5.20")]
+        public void Simplest(string expected, int priceWithCents)
         {
             Assert.AreEqual(expected, format(priceWithCents));
         }
 
         private static string format(int priceInCents)
         {
-            return "$7.89";
+            decimal price = (decimal)priceInCents/100;
+            return string.Format("${0}", price.ToString("#.00"));
         }
     }
 }

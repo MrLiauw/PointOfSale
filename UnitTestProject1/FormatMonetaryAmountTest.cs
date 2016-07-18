@@ -6,9 +6,10 @@ namespace UnitTestProject1
     public class FormatMonetaryAmountTest
     {
         [Test]
-        public void simplest()
+        [TestCase("$7.89", 789)]
+        public void simplest(string expected, int priceWithCents)
         {
-            Assert.AreEqual("$7.89", format(789));
+            Assert.AreEqual(expected, format(priceWithCents));
         }
 
         private static string format(int priceInCents)

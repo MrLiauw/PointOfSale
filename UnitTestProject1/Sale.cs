@@ -35,13 +35,10 @@ namespace UnitTestProject1
 
         internal void onTotal()
         {
-            bool saleInProgress = (pendingPurchaseItemPrices.Count != 0);
-            if (saleInProgress)
-            {
-                display.DisplayPurchaseTotal(PendingPurchaseTotal());
-            }
-            else
+            if (pendingPurchaseItemPrices.Count == 0)
                 display.DisplayNoSaleInProgressMessage();
+            else
+                display.DisplayPurchaseTotal(PendingPurchaseTotal());
         }
 
         private int PendingPurchaseTotal()

@@ -63,9 +63,15 @@ namespace UnitTestProject1
 
         public string FindPriceThenFormatPrice(string barcode)
         {
-            string storedPrice = null;
-            _pricesByBarcode.TryGetValue(barcode, out storedPrice);
-            return storedPrice;
+            int storedPrice;
+            if (!_pricesInCentsByBarCode.TryGetValue(barcode, out storedPrice)) return null;
+            return Format(storedPrice);
+        }
+
+        public static string Format(int priceInCents)
+        {
+            decimal price = (decimal)priceInCents/100;
+            return String.Format("${0}", price.ToString("#,##0.00"));
         }
     }
 }

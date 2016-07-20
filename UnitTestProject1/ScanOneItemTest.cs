@@ -46,7 +46,7 @@ namespace test
         [Test]
         public void emptyBarCode()
         {
-            Sale sale = new Sale(new Catalog((Dictionary<string, int>) null), display);
+            Sale sale = new Sale(new Catalog(null), display);
 
             sale.onBarCode("");
             Assert.AreEqual("Scanning error : empty barcode", display.getText());

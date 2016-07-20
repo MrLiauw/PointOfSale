@@ -14,7 +14,7 @@
             Text = "Product not found for " + barcode;
         }
 
-        public void DisplayPrice(string priceAsText)
+        public void DisplayText(string priceAsText)
         {
             Text = priceAsText;
         }

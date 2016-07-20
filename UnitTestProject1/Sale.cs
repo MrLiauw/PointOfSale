@@ -23,12 +23,13 @@ namespace UnitTestProject1
                 return;
             }
 
-            price = catalog.FindPriceThenFormatPrice(barcode);
-            if (price == null)
+            var priceInCents = catalog.FindPrice(barcode);
+            if (priceInCents == -1)
                 display.DisplayNotFoundMessage(barcode);
             else
             {
-                display.DisplayPrice(price);
+                price = Catalog.Format(priceInCents);
+                display.DisplayText(price);
             }
         }
 
@@ -61,11 +62,10 @@ namespace UnitTestProject1
             _pricesInCentsByBarCode = pricesInCentsByBarCode;
         }
 
-        public string FindPriceThenFormatPrice(string barcode)
+        public int FindPrice(string barcode)
         {
-            int storedPrice;
-            if (!_pricesInCentsByBarCode.TryGetValue(barcode, out storedPrice)) return null;
-            return Format(storedPrice);
+            if (!_pricesInCentsByBarCode.ContainsKey(barcode)) return -1;
+            return _pricesInCentsByBarCode[barcode];
         }
 
         public static string Format(int priceInCents)

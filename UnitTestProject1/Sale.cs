@@ -28,13 +28,8 @@ namespace UnitTestProject1
                 display.DisplayNotFoundMessage(barcode);
             else
             {
-                display.DisplayPrice(FormatMonetaryAmount(price));
+                display.DisplayPrice(price);
             }
-        }
-
-        private string FormatMonetaryAmount(string priceAsText)
-        {
-            return priceAsText;
         }
 
         internal void onTotal()
@@ -42,7 +37,7 @@ namespace UnitTestProject1
             bool saleInProgress = (price != null);
             if (saleInProgress)
             {
-                display.DisplayPurchaseTotal(FormatMonetaryAmount(price));
+                display.DisplayPurchaseTotal(price);
             }
             else
                 display.DisplayNoSaleInProgressMessage();

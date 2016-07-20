@@ -28,10 +28,10 @@ namespace UnitTestProject1
 
         public void DisplayPurchaseTotal(int purchaseTotal)
         {
-            Text = "Total: " + Format(purchaseTotal);
+            Text = "Total: " + FormatMonetaryAmount(purchaseTotal);
         }
 
-        public static string Format(int priceInCents)
+        public static string FormatMonetaryAmount(int priceInCents)
         {
             decimal price = (decimal)priceInCents/100;
             return String.Format("${0}", price.ToString("#,##0.00"));
@@ -39,7 +39,7 @@ namespace UnitTestProject1
 
         public void DisplayPrice(int priceInCents)
         {
-            Text = Format(priceInCents);
+            Text = FormatMonetaryAmount(priceInCents);
         }
     }
 }

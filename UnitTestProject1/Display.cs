@@ -16,11 +16,6 @@ namespace UnitTestProject1
             Text = "Product not found for " + barcode;
         }
 
-        public void DisplayText(string priceAsText)
-        {
-            Text = priceAsText;
-        }
-
         public void DisplayEmptyBarcodeMessage()
         {
             Text = "Scanning error : empty barcode";
@@ -44,7 +39,7 @@ namespace UnitTestProject1
 
         public void DisplayPrice(int priceInCents)
         {
-            DisplayText(Format(priceInCents));
+            Text = Format(priceInCents);
         }
     }
 }

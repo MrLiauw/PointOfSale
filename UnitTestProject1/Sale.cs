@@ -47,18 +47,10 @@ namespace UnitTestProject1
 
     internal class Catalog
     {
-        private Dictionary<string, string> _pricesByBarcode;
         private readonly Dictionary<string, int> _pricesInCentsByBarCode;
 
-        [Obsolete]
-        public Catalog(Dictionary<string, string> pricesByBarcode)
+        public Catalog(Dictionary<string, int> pricesInCentsByBarCode)
         {
-            _pricesByBarcode = pricesByBarcode;
-        }
-
-        public Catalog(Dictionary<string, string> pricesByBarcode, Dictionary<string, int> pricesInCentsByBarCode)
-        {
-            _pricesByBarcode = pricesByBarcode;
             _pricesInCentsByBarCode = pricesInCentsByBarCode;
         }
 

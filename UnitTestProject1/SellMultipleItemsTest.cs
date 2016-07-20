@@ -20,8 +20,7 @@ namespace UnitTestProject1
         public void OneItemFound()
         {
             Display display = new Display();
-            Catalog catalog = new Catalog(new Dictionary<string, string>() { { "12345", "$6.50" } },
-                new Dictionary<string, int>() { { "12345", 650 } });
+            Catalog catalog = new Catalog(new Dictionary<string, int>() { { "12345", 650 } });
             Sale sale = new Sale(catalog, display);
 
             sale.onBarCode("12345");
@@ -34,8 +33,7 @@ namespace UnitTestProject1
         public void OneItemNotFound()
         {
             Display display = new Display();
-            Catalog catalog = new Catalog(new Dictionary<string, string>() { { "12345", "$6.50" } },
-                new Dictionary<string, int>() { { "12345", 650 } });
+            Catalog catalog = new Catalog(new Dictionary<string, int>() { { "12345", 650 } });
             Sale sale = new Sale(catalog, display);
 
             sale.onBarCode("99999");
@@ -50,11 +48,7 @@ namespace UnitTestProject1
         public void severalItemsAllFound()
         {
             Display display = new Display();
-            Catalog catalog = new Catalog(new Dictionary<string, string>(){
-                {"1","$8.50"},
-                {"2", "$12.75"},
-                {"3", "$3.30"}
-            }, new Dictionary<string, int>(){
+            Catalog catalog = new Catalog(new Dictionary<string, int>(){
                 {"1",850},
                 {"2", 1275},
                 {"3", 330}

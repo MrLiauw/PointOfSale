@@ -15,12 +15,7 @@ namespace test
         public void Initialize()
         {
             display = new Display();
-            sale = new Sale(new Catalog(new Dictionary<string, string>()
-            {
-                {"12345", "$7.95"},
-                {"23456", "$12.50"}
-            }, 
-            new Dictionary<string, int>()
+            sale = new Sale(new Catalog(new Dictionary<string, int>()
             {
                 {"12345", 795},
                 {"23456", 1250}
@@ -51,7 +46,7 @@ namespace test
         [Test]
         public void emptyBarCode()
         {
-            Sale sale = new Sale(new Catalog(null, null), display);
+            Sale sale = new Sale(new Catalog((Dictionary<string, int>) null), display);
 
             sale.onBarCode("");
             Assert.AreEqual("Scanning error : empty barcode", display.getText());

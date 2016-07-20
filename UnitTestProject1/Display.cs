@@ -6,7 +6,7 @@ namespace UnitTestProject1
     {
         private string Text;
 
-        internal object getText()
+        internal string getText()
         {
             return Text;
         }

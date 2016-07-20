@@ -7,7 +7,7 @@ namespace UnitTestProject1
     {
         private Display display;
         private Catalog catalog;
-        private string price;
+        private IList<int> pendingPurchaseItemPrices = new List<int>(); 
 
         public Sale(Catalog catalog, Display display)
         {
@@ -28,17 +28,17 @@ namespace UnitTestProject1
                 display.DisplayNotFoundMessage(barcode);
             else
             {
-                price = Display.Format(priceInCents);
-                display.DisplayPrice(priceInCents);
+                pendingPurchaseItemPrices.Add(priceInCents);
+                display.DisplayPrice(pendingPurchaseItemPrices[0]);
             }
         }
 
         internal void onTotal()
         {
-            bool saleInProgress = (price != null);
+            bool saleInProgress = (pendingPurchaseItemPrices.Count != 0);
             if (saleInProgress)
             {
-                display.DisplayPurchaseTotal(price);
+                display.DisplayPurchaseTotal(Display.Format(pendingPurchaseItemPrices[0]));
             }
             else
                 display.DisplayNoSaleInProgressMessage();

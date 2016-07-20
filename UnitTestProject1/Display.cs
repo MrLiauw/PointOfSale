@@ -1,4 +1,6 @@
-﻿namespace UnitTestProject1
+﻿using System;
+
+namespace UnitTestProject1
 {
     class Display
     {
@@ -32,6 +34,12 @@
         public void DisplayPurchaseTotal(string price)
         {
             Text = "Total: " + price;
+        }
+
+        public static string Format(int priceInCents)
+        {
+            decimal price = (decimal)priceInCents/100;
+            return String.Format("${0}", price.ToString("#,##0.00"));
         }
     }
 }

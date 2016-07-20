@@ -28,8 +28,8 @@ namespace UnitTestProject1
                 display.DisplayNotFoundMessage(barcode);
             else
             {
-                price = Catalog.Format(priceInCents);
-                display.DisplayText(price);
+                price = Display.Format(priceInCents);
+                display.DisplayText(Display.Format(priceInCents));
             }
         }
 
@@ -66,12 +66,6 @@ namespace UnitTestProject1
         {
             if (!_pricesInCentsByBarCode.ContainsKey(barcode)) return -1;
             return _pricesInCentsByBarCode[barcode];
-        }
-
-        public static string Format(int priceInCents)
-        {
-            decimal price = (decimal)priceInCents/100;
-            return String.Format("${0}", price.ToString("#,##0.00"));
         }
     }
 }

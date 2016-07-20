@@ -15,7 +15,7 @@ namespace UnitTestProject1
         [TestCase("$2,108,322.81", 210832281, TestName = "Monetary amount of 210832281 formatted to $2,108,322.81")]
         public void Simplest(string expected, int priceWithCents)
         {
-            Assert.AreEqual(expected, Catalog.Format(priceWithCents));
+            Assert.AreEqual(expected, Display.Format(priceWithCents));
         }
     }
 }

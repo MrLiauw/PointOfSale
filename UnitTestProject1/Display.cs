@@ -41,5 +41,10 @@ namespace UnitTestProject1
             decimal price = (decimal)priceInCents/100;
             return String.Format("${0}", price.ToString("#,##0.00"));
         }
+
+        public void DisplayPrice(int priceInCents)
+        {
+            DisplayText(Format(priceInCents));
+        }
     }
 }

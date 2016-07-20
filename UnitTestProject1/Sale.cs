@@ -29,7 +29,7 @@ namespace UnitTestProject1
             else
             {
                 price = Display.Format(priceInCents);
-                display.DisplayText(Display.Format(priceInCents));
+                display.DisplayPrice(priceInCents);
             }
         }
 

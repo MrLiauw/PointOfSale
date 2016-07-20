@@ -38,10 +38,15 @@ namespace UnitTestProject1
             bool saleInProgress = (pendingPurchaseItemPrices.Count != 0);
             if (saleInProgress)
             {
-                display.DisplayPurchaseTotal(Display.Format(pendingPurchaseItemPrices[0]));
+                display.DisplayPurchaseTotal(PendingPurchaseTotal());
             }
             else
                 display.DisplayNoSaleInProgressMessage();
+        }
+
+        private int PendingPurchaseTotal()
+        {
+            return pendingPurchaseItemPrices[0];
         }
     }
 

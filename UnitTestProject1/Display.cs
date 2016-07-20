@@ -31,9 +31,9 @@ namespace UnitTestProject1
             Text = "No sale in progress. Try scanning a product";
         }
 
-        public void DisplayPurchaseTotal(string price)
+        public void DisplayPurchaseTotal(int purchaseTotal)
         {
-            Text = "Total: " + price;
+            Text = "Total: " + Format(purchaseTotal);
         }
 
         public static string Format(int priceInCents)

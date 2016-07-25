@@ -43,7 +43,12 @@ namespace UnitTestProject1
 
         private int PendingPurchaseTotal()
         {
-            return pendingPurchaseItemPrices[0];
+            return ComputePendingPurchaseTotal(pendingPurchaseItemPrices);
+        }
+
+        public static int ComputePendingPurchaseTotal(IList<int> purchaseItemPrices)
+        {
+            return purchaseItemPrices[0];
         }
     }
 

@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
-using System.Text;
 
 namespace UnitTestProject1
 {
@@ -78,7 +77,7 @@ namespace UnitTestProject1
         {
             Display display = new Display();
             Catalog catalog = new Catalog(new Dictionary<string, int>(){
-                {"1",850},
+                {"1", 850},
                 {"2", 1275},
                 {"3", 330}
             });

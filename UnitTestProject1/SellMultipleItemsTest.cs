@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System.Collections.Generic;
+using System.Text;
 
 namespace UnitTestProject1
 {
@@ -41,6 +42,34 @@ namespace UnitTestProject1
 
             Assert.AreEqual("No sale in progress. Try scanning a product",
                 display.getText());
+        }
+
+        [Test]
+        public void severalItemsAllNotFound()
+        {
+            Display display = new Display();
+            Sale sale = new Sale(catalogWithoutBarcodes("product you won't find",
+                "another product you won't find",
+                "a thord product you won't find"),
+                display);
+
+            sale.onBarCode("product you won't find");
+            sale.onBarCode("another product you won't find");
+            sale.onBarCode("a third product you won't find");
+            sale.onTotal();
+
+            Assert.AreEqual("No sale in progress. Try scanning a product",
+                display.getText());
+        }
+
+        private Catalog catalogWithoutBarcodes(string barcode1 = "", string barcode2 = "", string barcode3 = "")
+        {
+            return emptyCatalog();
+        }
+
+        private Catalog emptyCatalog()
+        {
+            return new Catalog(new Dictionary<string, int>());
         }
 
         [Test]

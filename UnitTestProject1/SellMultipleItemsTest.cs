@@ -72,7 +72,6 @@ namespace UnitTestProject1
         }
 
         [Test]
-        [Ignore]
         public void severalItemsAllFound()
         {
             Display display = new Display();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UnitTestProject1
 {
@@ -48,7 +49,7 @@ namespace UnitTestProject1
 
         public static int ComputePendingPurchaseTotal(IList<int> purchaseItemPrices)
         {
-            return purchaseItemPrices[0];
+            return purchaseItemPrices.Sum(x=>x);
         }
     }
 

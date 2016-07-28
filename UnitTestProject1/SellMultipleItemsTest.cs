@@ -89,5 +89,23 @@ namespace UnitTestProject1
 
             Assert.AreEqual("Total: $24.55", display.getText());
         }
+
+        [Test]
+        public void severalItemsSomeNotFound()
+        {
+            Display display = new Display();
+            Catalog catalog = new Catalog(new Dictionary<string, int>(){
+                {"1", 1200},
+                {"2", 500}
+            });
+            Sale sale = new Sale(catalog, display);
+
+            sale.onBarCode("1");
+            sale.onBarCode("you won't find this product");
+            sale.onBarCode("2");
+            sale.onTotal();
+
+            Assert.AreEqual("Total: $17.00", display.getText());
+        }
     }
 }
